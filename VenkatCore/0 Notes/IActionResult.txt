@@ -1,0 +1,5 @@
+﻿
+
+=======  IAcantionRsult =============================================
+
+Both RedirectoActionResult and ViewResult implement this IAcantionRsult

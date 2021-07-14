@@ -1,0 +1,4 @@
+
+
+The router compares the request URL against a list of configured route templates to -
+determine which action method to execute.

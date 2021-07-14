@@ -1,0 +1,4 @@
+﻿
+================Get EF Core helps infomations===============================
+
+PM> Get-Help about_entityframeworkcore

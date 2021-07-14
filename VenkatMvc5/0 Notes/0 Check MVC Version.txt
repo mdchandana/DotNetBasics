@@ -1,0 +1,16 @@
+﻿
+
+
+        --Checking MVC Version
+        --This is related System.Web.Mvc
+        --This Project Version Is : MVC5
+
+        public string Index()  
+        {  
+            return "<b>Version of your MVC is: "
+                    + typeof(Controller).Assembly.GetName().Version.ToString()
+                    + "</b>";  
+        }  
+
+        //Result
+        Version of your MVC is: 5.2.7.0

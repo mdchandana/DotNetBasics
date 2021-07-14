@@ -1,0 +1,25 @@
+
+
+-- Sqlserver Remote access Configuarations......
+
+1.  Keep Run Both SqlServer instance and SqlServerBrowser
+
+2.  Open Sqlserver management studio -> Right click on Server node -> Properties
+    ->Connections -> Allow Remote connections to this server..
+    RESTART THE SERVER
+
+3.  Enable port number 1433 on mssql server 2012
+    Steps to enable port number 1433 on mssql server 2012:
+        -Start
+        -All Programs
+        -SQL server 2012
+        -Configuration Tools
+        -SQL server configuration manager
+        -On the left side of new window SQL Server network configuration
+        -Protocols for SQLEXPRESS
+        -Double click on TPC/IP which is on left panel
+        -On Protocol tab if Enabled is No Then Make Yes
+        -Then click on IP Address tab
+        -Scroll down and last IPALL, set TCP Port as 1433
+        -Click Apply and then Ok button.
+    RESTART THE SERVER

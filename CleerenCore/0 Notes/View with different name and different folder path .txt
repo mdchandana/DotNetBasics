@@ -1,0 +1,45 @@
+﻿
+        =======Absolute vs. Relative Paths=================================
+        There are two ways to specify a file path.
+        1. An absolute path, which always begins with the root folder , we are not consider the currently -
+           working directory, we are specify from the root directory...
+
+        2. A relative path, which is relative to the program’s current working directory..
+           we are consider currently working directory....from the root directory....
+
+
+
+
+        ======== Access view which has different name and different folder path ==========================
+
+        [HttpGet]
+        public ViewResult Edit(int Id)
+        {
+            //-----Access view which has different name and same folder path 
+            //------worked, when view in same folder
+            //return View("Test1");       
+
+
+
+            //===============Absolute path======================================================================
+            //Begin with Root folder and have to specify file extension..
+            //worked, when view in different folder, need absolute path and file extension is to be specified
+            //======with absolute path , NEED FILE EXTENSION.........
+
+            return View("myViews/Test1.cshtml");   //absolute path  .. looking for myViews folder from root folder..
+            return View("/myViews/Test1.cshtml");  --OR SAME--  //absolute path   .. looking for myViews folder from root folder..
+            
+            //with till (~) operator
+            return View("~/myViews/Test1.cshtml"); //worked,   //.. looking for myViews folder from root folder..
+
+
+
+
+
+           
+            //=============Relative path====================================================================
+            //Begin with Current working folder and no need to specify file extension......
+            //.. looking for myViews folder from current working directory..
+            //with relative path , DON'T SPECIFY FILE EXTENSION.........
+            return View("../../myViews/Test1"); //relative path //worked,
+        } 

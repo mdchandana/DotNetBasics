@@ -1,0 +1,60 @@
+﻿
+
+===========return View()=================
+It tells MVC to generate an HTML template to be displayed and sends it to the browser 
+without making a new request. It does mean that it’s not changing the URL in the browser’s
+address bar.
+
+public ActionResult Index()  
+{  
+    return View();  
+} 
+
+===========return RedirectToAction()=================
+To redirect to a different action which can be in the same or different controller. 
+It tells ASP.NET MVC to respond with a browser to a different action instead of rendering 
+HTML as View() method does. Browser receives this notification to redirect and makes a new 
+request for the new action.
+
+return RedirectToAction(“ActionName”,”ControllerName”);
+
+Or this can be written as
+
+return RedirectToAction(“~/ControllerName/ActionName”); 
+
+
+
+
+=============================RedirectToAction====================================
+
+---------------
+-It's impossible to save state of current request, because... HTTP is stateless.
+-Every RedirectToAction really tells browser to make another HTTP request. 
+-If you would like to pass some data between HTTP requests, you have to use cookies
+ or session mechanism.
+-RedirectToAction also allows you to pass data on the query string via routeValues.
+-you won't pass objects over the query string but you can say, pass the item id, then
+ lookup the the id
+ ----------------
+
+
+
+ ----------------
+ As mentioned, RedirecToAction will cause the browser to make a new request, and when 
+ that new request comes in, it will create a totally new HttpContext. As mentioned, 
+ To pass data between the two requests, you can use the query string, session or cookies.
+ But there is another option to consider. (TempData)
+ ----------------
+
+
+ --------------
+ 1. Return View doesn't make a new requests, it just renders the view.
+ 2. without changing URLs in the browser's address bar. Return RedirectToAction makes a new 
+    requests and URL in the browser's address bar is updated with the generated URL by MVC.
+ 3. Return Redirect also makes a new requests and URL in the browser's address bar is updated,
+    but you have to specify the full URL to redirect
+ 4. Between RedirectToAction and Redirect, best practice is to use RedirectToAction for anything
+    dealing with your application actions/controllers. If you use Redirect and provide the URL, 
+    you'll need to modify those URLs manually when you change the route table.
+ 5. RedirectToRoute redirects to the specifies route defined in the the Route table.
+ --------------

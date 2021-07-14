@@ -1,0 +1,9 @@
+﻿
+
+
+Once you've registered all your classes with the DI container (using IServiceCollection), 
+pretty much all a DI container needs to do is allow you to retrieve an instance of an object using GetService().
+
+Of course, you typically shouldn't be using the IServiceProvider directly in your code at all. 
+Instead, you should be using standard constructor injection, and letting the framework worry about using 
+IServiceProvider behind the scenes.

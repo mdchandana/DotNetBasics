@@ -1,0 +1,14 @@
+﻿
+<h1>Welcome to VenkatCore Project</h1>
+<h2>Home Controller - Index</h2>
+
+@{
+    int id = 10;
+    string name = "chandana";
+}
+
+@Html.ActionLink("Details","Details","Employee",new { id=id }) 
+
+<br />
+
+<a asp-controller="Home" asp-action="Edit" asp-route-name="@name">Edit</a>

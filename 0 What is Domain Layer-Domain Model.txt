@@ -1,0 +1,26 @@
+
+====SAME===  The Domain Layer  , Domain Model , 
+
+--The Domain Layer--
+The domain layer is also called the business layer. It encapsulates business or domain logic and data. 
+This layer might be deployed as an application server.
+
+
+
+
+--Domain Model--
+During the analysis phase of development a domain model is created to represent the business environment -
+of the application.
+During the design phase, details are added to the domain model and it becomes the domain layer of the 
+application.
+there are many classes in the domain layer. This can lead to complex dependencies between the presentation -
+layer and the domain layer. 
+
+
+
+
+--Domain Modeling--
+Domain Modeling is a way to describe and model real world entities and the relationships between them, 
+which collectively describe the problem domain space. Derived from an understanding of system-level requirements, 
+identifying domain entities and their relationships provides an effective basis for understanding and helps 
+practitioners design systems for maintainability, testability, and incremental development.

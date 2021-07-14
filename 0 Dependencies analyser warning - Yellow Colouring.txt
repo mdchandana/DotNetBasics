@@ -1,0 +1,31 @@
+
+
+=======FIXED
+Dependencies analyser warning - with Yellow Colouring
+
+====Solution
+If you have the warning icon but no warnings and nothing appears to actually be wrong, 
+right click the project > Unload Project > right click the project again > Reload Project.
+The icon appeared for a moment and then was cleared for me in Visual Studio 2019. This avoids a full Visual Studio restart.
+
+====Solution
+Run the following command on the Package manager console to fix this issue.
+Update-Package -ProjectName 'ProjectNameGoesHere' -Reinstall
+Update-Package -Reinstall
+
+
+====Solution
+Just for documentation purpose **for new person with this issue** try this and you will rememberme :D
+If you go to: Tools > NuGet Administrator > Configurations.
+and you have "Allow nuget...." and "automatically check...." cheked.
+The only thing than you have to do is click con the button **"Clear All NuGet Cache(s)"**
+That's it, you don't have to edit manual thinks than can be dangerous, believe me, I use to need to done some of the steps than describe here a lot of time, and try more than 5 steps of the oficial microsoft documentation for that issue you could check it here: https://docs.microsoft.com/es-es/nuget/consume-packages/package-restore#restore-packages-automatically-using-visual-studio
+But just cleaning the cache solve all the problems
+
+
+
+====Solution
+I've had the same issue. I think its because of the "C:\Program Files\dotnet" folder perssion. 
+you can open the visual studio by Run as Administrator or give the folder all permission in security folder.
+I did it and my proplem was resolved.
+

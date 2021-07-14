@@ -1,0 +1,65 @@
+
+
+--Shawn Course Only Installed For EF Only - 
+    1. Microsoft.EntityFrameworkCore.SqlServer 
+    2. Microsoft.EntityFrameworkCore.Design
+ 
+
+
+---
+$ dotnet ef
+Could not execute beacuse the specified command or file was not found..
+
+Solution:
+$ dotnet tool install --global dotnet-ef
+--OR Globally
+$ dotnet tool install --global dotnet-ef
+
+--TO Update  Tools
+$ dotnet tool update dotnet-ef -g
+
+
+-------------
+$ dotnet ef --version
+Entity Framework Core .NET Command-line Tools
+5.0.0
+---------------
+
+
+
+--------
+$ dotnet ef dbcontext info
+Build started...
+Build succeeded.
+Your startup project 'Shawn' doesn't reference Microsoft.EntityFrameworkCore.Design. 
+This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct,
+install the package, and try again.
+--------------
+
+
+$ dotnet ef
+$ dotnet ef --help
+$ dotnet ef dbcontext info
+dotnet ef migrations add InitialDB
+dotnet ef database update
+
+And we're going to do this by actually exposing or implementing an interface. 
+We're gonna extract an interface from the Dutch repository. And you see, 
+it's calling a guy Dutch repository, which I'm happy with, and I'm just gonna 
+include all the members we created into this public interface. The reason we 
+want the interfaces that when were doing testing we may want to create a 
+mock version of this that return static data or maybe dated from an in memory 
+database or something that is easy to mock up. So we're not testing against 
+the actual database, and so this gives us a couple of things. One. It gives 
+us the ability to define what all the queries look like in one place so that 
+we can test them effectively. But it also makes it easier to figure out what 
+the quarries air actually doing.
+
+
+
+
+
+
+
+
+

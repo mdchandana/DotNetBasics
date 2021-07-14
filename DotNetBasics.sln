@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VenkatCore", "VenkatCore\VenkatCore.csproj", "{C359710F-CEC5-496D-B102-C3924CB6B1A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Notes", "0 Notes", "{656E67E8-6628-4EB2-BDE9-191D37F53A9B}"
+	ProjectSection(SolutionItems) = preProject
+		0 0Startup.cs file Original  DotNet 5.txt = 0 0Startup.cs file Original  DotNet 5.txt
+		0 0Startup.cs file Original  DotNetCore 3.1.txt = 0 0Startup.cs file Original  DotNetCore 3.1.txt
+		0 assigning nullable value to not nullable variable.txt = 0 assigning nullable value to not nullable variable.txt
+		0 Ef DatabaseGeneratedOption.txt = 0 Ef DatabaseGeneratedOption.txt
+		0 EF Set startup project and Migration Output Dir.txt = 0 EF Set startup project and Migration Output Dir.txt
+		0 Nuget packages Installed Location.txt = 0 Nuget packages Installed Location.txt
+		0 Scott Set Startup project as other when migration.txt = 0 Scott Set Startup project as other when migration.txt
+		0 Shawn EF Need Only - EfCore.SqlServer and EfCore.Design  .txt = 0 Shawn EF Need Only - EfCore.SqlServer and EfCore.Design  .txt
+		0 SqlServer remote access configuration.txt = 0 SqlServer remote access configuration.txt
+		0 telnet check work sqlserver remotely.txt = 0 telnet check work sqlserver remotely.txt
+		0 What is Domain Layer-Domain Model.txt = 0 What is Domain Layer-Domain Model.txt
+		0.txt = 0.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleerenCore", "CleerenCore\CleerenCore.csproj", "{317B30AD-311F-477C-924B-E508DB58EF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenkatMvc5", "VenkatMvc5\VenkatMvc5.csproj", "{31809AEA-2632-4F62-8E85-8F0330B6EA31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C359710F-CEC5-496D-B102-C3924CB6B1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C359710F-CEC5-496D-B102-C3924CB6B1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C359710F-CEC5-496D-B102-C3924CB6B1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C359710F-CEC5-496D-B102-C3924CB6B1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317B30AD-311F-477C-924B-E508DB58EF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317B30AD-311F-477C-924B-E508DB58EF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317B30AD-311F-477C-924B-E508DB58EF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317B30AD-311F-477C-924B-E508DB58EF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCBD3B7F-683C-418C-BA2B-B303848FFC8A}
+	EndGlobalSection
+EndGlobal

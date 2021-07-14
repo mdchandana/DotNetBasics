@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "All Employees";
+}
+
+<h3 class="mt-5 text-info">All Employees</h3>
+
+@*<div class="text-end">
+    <a asp-controller="Employee" asp-action="Create" class="btn btn-success"> New Employee</a>
+</div>*@
+
+<div>
+    <a asp-controller="Employee" asp-action="Create" class="btn btn-success"> New Employee</a>
+</div>
+
+<div class="table-responsive border">
+
+    <table class="table">
+        <thead>
+            <tr class="table-info">
+                <th>Emp Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.Name</td>
+                    <td>@emp.Email</td>
+                    <td>@emp.Gender</td>
+                    <td>
+                        <a href="/Employee/Details?id=@emp.Id">Details</a> |
+                        @Html.ActionLink("Edit", "Edit", "Employee", new { id = emp.Id }) |
+                        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@emp.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

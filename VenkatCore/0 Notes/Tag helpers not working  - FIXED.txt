@@ -1,0 +1,9 @@
+﻿
+@using VenkatCore.Models;
+
+
+
+After a while I figured out the silly issue.
+The following statement should NOT have a semicolon at the end and I had one! 
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

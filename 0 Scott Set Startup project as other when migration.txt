@@ -1,0 +1,72 @@
+
+
+---------------------------------------------------------
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/EFCoreBasics (master)
+$ dotnet ef dbcontext info
+Build started...
+Build succeeded.
+Unable to create an object of type 'AppDbContext'. For the different patterns supported at design time,
+see https://go.microsoft.com/fwlink/?linkid=851728
+
+
+---------------------------------------------------------
+-s mean startup project.... we are set here our WebApp project...
+
+$ dotnet ef dbcontext info -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+Build started...
+Build succeeded.
+Your startup project 'EFCoreTestingWebApp' doesn't reference Microsoft.EntityFrameworkCore.Design.
+This package is required for the Entity Framework Core Tools to work. Ensure your startup project 
+is correct, install the package, and try again.
+
+
+---------------------------------------------------------
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/EFCoreBasics (master)
+$ dotnet ef dbcontext info -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+Build started...
+Build succeeded.
+Provider name: Microsoft.EntityFrameworkCore.SqlServer
+Database name: EFCoreBasicsDB
+Data source: CHANDANA\SQLEXPRESS2012
+Options: None
+
+------------------------------------------------------------
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/EFCoreBasics (master)
+$ dotnet ef migrations add initialModel -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+
+
+----------------------------------------------------------
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/EFCoreBasics (master)
+$ dotnet ef database
+
+
+Usage: dotnet ef database [options] [command]
+
+Options:
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  drop    Drops the database.
+  update  Updates the database to a specified migration.
+
+Use "database [command] --help" for more information about a command.
+
+
+---------------------------------------------------------
+
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/EFCoreBasics (master)
+$ dotnet ef database update -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+Build started...
+Build succeeded.
+Security Warning: The negotiated TLS 1.0 is an insecure protocol and is supported for backward 
+compatibility only. The recommended protocol version is TLS 1.2 and later.
+Done.
+
+-------------------------------------------------------

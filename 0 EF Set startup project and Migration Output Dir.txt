@@ -1,0 +1,111 @@
+
+
+
+Install Microsoft.EntityFrameworkCore.SqlServer
+Install Microsoft.EntityFrameworkCore.Design
+
+==Worked=================================================================================================
+--No need to set startup flag -s when we are inside the project..
+--Startup flag only need when we are in ouside the project folder... to figureout which project to RUN...
+
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/IrrigationWebSystem (master)
+$ dotnet ef migrations add InitialMigration --context AppDbContext -o Infrastructure/Data/Migrations
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/IrrigationWebSystem (master)
+$ dotnet ef database update
+Build started...
+Build succeeded.
+More than one DbContext was found. Specify which one to use. Use the '-Context' parameter for PowerShell commands and the '--context' parameter for dotnet commands.
+
+
+
+Chandana Priyantha@CHANDANA MINGW64 /e/DEVELOPMENT/TESTING/1 DotNet/DotNet/IrrigationWebSystem (master)
+$ dotnet ef database update --context AppDbContext
+Build started...
+Build succeeded.
+Security Warning: The negotiated TLS 1.0 is an insecure protocol and is supported for backward compatibility only. The recommended protocol version is TLS 1.2 and later.
+Done.
+======================================================================================================
+
+
+=============From Microsoft
+dotnet ef migrations add InitialCreate --context BlogContext --output-dir Migrations/SqlServerMigrations
+================================
+
+
+
+
+
+===========================Set startup project and Migration Output Dir======================================
+
+===Worked Code 1 by ME (short version easy)
+
+when outside the project folder... we have to specify the startup Project,
+and if we need seperate folder for Migrations..WORKED
+$ dotnet ef migrations add InitialMigration -s StudyMash -o Infrastructure/Migrations
+
+
+when inside the project folder worked , we don't need to specify the startup project..
+since we are in inside project folder
+$ dotnet ef migrations add InitialMigration -o Infrastructure/Migrations    
+$ dotnet ef database update
+
+when inside project folder No Need to specify the startup project But WORKED.. Even specify..
+$ dotnet ef migrations add InitialMigration -s ../StudyMash -o Infrastructure/Migrations
+------------------
+
+
+
+===Worked Code 2 by ME (long)
+$ dotnet ef migrations add InitialMigration --startup-project StudyMash --output-dir Infrastructure/Migrations
+
+============================
+
+
+
+
+
+
+
+
+
+
+====BY SCOTT WORKED CODE
+$ dotnet ef dbcontext info -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+$ dotnet ef migrations add initialModel -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+$ dotnet ef database update -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+----------------------------------------------------------------------------------------
+
+
+
+
+
+BY jasontaylordev----------------------------------------------------------------
+Database Migrations---------
+To use dotnet-ef for your migrations please add the following flags to your command
+(values assume you are executing from repository root)
+
+--project src/Infrastructure (optional if in this folder)
+--startup-project src/WebUI
+--output-dir Persistence/Migrations
+For example, to add a new migration from the root folder:
+
+dotnet ef migrations add "SampleMigration" --project src\Infrastructure --startup-project src\WebUI --output-dir Persistence\Migrations
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

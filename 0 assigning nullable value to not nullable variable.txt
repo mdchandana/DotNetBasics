@@ -1,0 +1,13 @@
+
+
+
+       //assigning nullable value to not nullable variable
+       // id.value
+
+
+        public IActionResult Details(int? id)
+        {
+            var foundEmployee = _employeeRepository.GetEmployee(id.Value);  
+
+            return View(foundEmployee);
+        }

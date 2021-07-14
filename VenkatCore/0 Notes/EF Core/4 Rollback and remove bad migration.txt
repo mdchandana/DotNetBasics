@@ -1,0 +1,96 @@
+﻿
+
+
+============================================Rollback and remove bad migration==========================================
+=======================================================================================================================
+
+
+As the question indicates this applies to a migration in a development type environment that has not yet been released.
+
+This issue can be solved in these steps: restore your database to the last good migration, 
+delete the bad migration from your Entity Framework project, generate a new migration and apply it to the database. 
+Note: Judging from the comments these exact commands may no longer be applicable if you are using EF Core.
+
+Step 1: Restore to a previous migration
+
+If you haven't yet applied your migration you can skip this part. To restore your database schema to a previous point
+issue the Update-Database command with -TargetMigration option specify the last good migration. If your entity framework
+code resides in a different project in your solution, you may need to use the '-Project' option or switch the default 
+project in the package manager console.
+
+Update-Database –TargetMigration: <name of last good migration>
+To get the name of the last good migration use the 'Get-Migrations' command to retrieve a list of the migration names that 
+have been applied to your database.
+
+PM> Get-Migrations
+Retrieving migrations that have been applied to the target database.
+201508242303096_Bad_Migration
+201508211842590_The_Migration_applied_before_it
+201508211440252_And_another
+This list shows the most recent applied migrations first. Pick the migration that occurs in the list after the one you want 
+to downgrade to, ie the one applied before the one you want to downgrade. Now issue an Update-Database.
+
+Update-Database –TargetMigration: "<the migration applied before it>"
+All migrations applied after the one specified will be down-graded in order starting with the latest migration applied first.
+
+Step 2: Delete your migration from the project
+
+remove-migration name_of_bad_migration
+If the remove-migration command is not available in your version of Entity Framework, delete the files of the unwanted 
+migration your EF project 'Migrations' folder manually. At this point, you are free to create a new migration and apply 
+it to the database.
+
+Step 3: Add your new migration
+
+add-migration my_new_migration
+Step 4: Apply your migration to the database
+
+update-database
+
+=========================================================
+
+
+
+
+
+=========================================================
+Update-Database <Name of last good migration>
+Remove-Migration
+For example, in my current development the command became
+
+PM> Update-Database xxxxxxxxxxxxxxx
+Done.
+PM> Remove-Migration
+Done.
+PM> 
+========================================================
+
+
+
+
+
+==========================================================
+First, Update your last perfect migration via this command :
+
+Update-Database –TargetMigration
+Example:
+
+Update-Database -20180906131107_xxxx_xxxx
+And, then delete your unused migration manually.
+==========================================================
+
+
+
+==========================================================
+PM> Update-Database 20201021142350_emp1RecordAdded
+Build started...
+Build succeeded.
+Done.
+PM> Remove-Migration
+Build started...
+Build succeeded.
+Removing migration '20201021142827_emp2RecordAdded'.
+Reverting model snapshot.
+Done.
+PM> 
+==========================================================

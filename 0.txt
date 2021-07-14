@@ -1,0 +1,7 @@
+
+
+Core Of the application: call as Classes,Entities,Models,Core,Domain
+			  Processing Algorythems..
+
+
+DataAccess : to seperate DaaAccess class from my Ui and Entities...

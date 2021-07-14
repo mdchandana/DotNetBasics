@@ -1,0 +1,12 @@
+
+
+---instal telnet
+    - control panel -> program and features -> next select telnet -> install telnet 	
+
+---telnet check work sqlserver remotely working
+
+open command prompt,Run bellow command..
+telnet 127.0.0.1 1433 
+
+
+If you get a blank screen, it indicates network connection established successfully

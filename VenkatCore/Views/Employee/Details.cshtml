@@ -1,0 +1,18 @@
+﻿@model EmpCreateVM
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h3 class="mt-5 text-info">Employee Details</h3>
+
+<ul>
+    <li>Employee Id      : @Model.Id</li>
+    <li>Employee Name    : @Model.Name</li>
+    <li>Employee Email   : @Model.Email</li>
+    <li>Employee Dept    : @Model.Gender</li>
+</ul>
+
+<br />
+<br />
+<a asp-controller="Employee" asp-action="Index">Back to All Employees</a>

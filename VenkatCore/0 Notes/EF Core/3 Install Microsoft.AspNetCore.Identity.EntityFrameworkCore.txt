@@ -1,0 +1,5 @@
+﻿
+
+======To work with Identity , we have to install
+
+Microsoft.AspNetCore.Identity.EntityFrameworkCore

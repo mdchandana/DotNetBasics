@@ -1,0 +1,4 @@
+﻿
+
+
+If we need to add class library project , it is best to add [ Class Library (.Net Standard) Project ] .....

@@ -1,0 +1,53 @@
+﻿
+
+
+=====================To Install EF Core======================================
+
+STEP 1 ==== install Microsoft.EntityFrameworkCore.SqlServer ==========
+
+- we have to install Microsoft.EntityFrameworkCore.SqlServer
+  (Not Microsoft.EntityFrameworkCore)
+
+- Microsoft.EntityFrameworkCore.SqlServer has another 2 dependencies
+   - Microsoft.EntityFramworkCore.Relational
+     - Microsoft.EntityFramewokCore
+     
+- So we just only need to install Microsoft.EntityFrameworkCore.SqlServer
+  It contains other 2 dependencies and that two libraries also -
+  will be automatically installed with Microsoft.EntityFrameworkCore.SqlServer.
+
+
+
+STEP 2 ==== install Microsoft.EntityFrameworkCore.Tools ========
+- install Microsoft.EntityFrameworkCore.Tools
+
+Entity Framework Core Tools for the NuGet Package Manager Console in Visual Studio.
+Enables these commonly used commands:
+Add-Migration
+Drop-Database
+Get-DbContext
+Scaffold-DbContext
+Script-Migrations
+Update-Database
+
+You can find all the provider specific NuGet packages on the following MSDN page
+https://docs.microsoft.com/en-us/ef/core/providers/
+
+
+
+STEP 3 ==== install Microsoft.AspNetCore.Identity.EntityFrameworkCore ========
+- install Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
