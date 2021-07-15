@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleerenCore", "CleerenCore\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenkatMvc5", "VenkatMvc5\VenkatMvc5.csproj", "{31809AEA-2632-4F62-8E85-8F0330B6EA31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0EFCoreBasics", "0EFCoreBasics\0EFCoreBasics.csproj", "{EEADA9BB-4F4D-49FB-82C2-640DFC661CD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0Ado.Net", "0Ado.Net\0Ado.Net.csproj", "{361D0808-B2EB-4017-9E87-787E8FC14246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31809AEA-2632-4F62-8E85-8F0330B6EA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEADA9BB-4F4D-49FB-82C2-640DFC661CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEADA9BB-4F4D-49FB-82C2-640DFC661CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEADA9BB-4F4D-49FB-82C2-640DFC661CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEADA9BB-4F4D-49FB-82C2-640DFC661CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{361D0808-B2EB-4017-9E87-787E8FC14246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{361D0808-B2EB-4017-9E87-787E8FC14246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{361D0808-B2EB-4017-9E87-787E8FC14246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{361D0808-B2EB-4017-9E87-787E8FC14246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
