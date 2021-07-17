@@ -1,0 +1,34 @@
+﻿
+
+
+
+------Here there are 2 situation--------------------------------------------------------
+
+1 . Work EFCoreBasics class library project as a stand lone project...
+2 . Start up project as EFCoreTestingWebApp....
+
+
+
+
+
+------1.Work EFCoreBasics class library project as a stand lone project-----------------
+--Set DbContetxt class without DbContext options...
+--Manually configure connection string or using appsetting.json file...
+
+
+
+
+------2.Start up project as EFCoreTestingWebApp-----------------------------------------
+
+--we have to set DbContextOptions at EFCoreBasics class library project...
+--No Need to set ConnectionString at class library project...
+
+--we have to configure Startup.cs class to Database provider and to access ConnString..
+--we have to set ConnectionString at appsettings.json..
+
+--Now we can do Database migration using  setting Startup project as EFCoreTestingWebApp....
+
+$ dotnet ef migrations add initialModel -s ../EFCoreTestingWebApp/EFCoreTestingWebApp.csproj
+
+======
+Here  connectionString is at EFCoreTestingWebApp will be read and access....

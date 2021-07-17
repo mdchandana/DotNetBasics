@@ -1,0 +1,24 @@
+﻿
+
+
+
+
+
+-------------EFCoreBasics Project Installed-------------------------------
+
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools  
+
+
+Microsoft.Extensions.Configuration.Json
+Microsoft.Extensions.DependencyInjection
+--------------------------------------------------------------------------
+
+
+
+
+
+---------------EFCoreTestingWebApp Installed Only-------------------------
+Startup project only Installed......
+
+Microsoft.EntityFrameworkCore.Design

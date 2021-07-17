@@ -1,0 +1,94 @@
+﻿
+
+
+
+=============================================================================================================
+--------------------------------[Customer] [Order]-------------------------------------
+--------------------------------1:N Relationship-----------------------------------
+[Customer] Entity
+A [Customer] can association with many [Order].
+(specific customerId can assocoate with Order table many times)
+CardinalityRatio N
+
+[Order] Entity
+A [Order] associate to a only one specific [Customer].
+(A specific OrderId associate with Customer table only once.)
+CardinalityRatio 1
+----------------------------------------------------------------------------------
+=============================================================================================================
+
+
+
+
+
+
+============================================================================================================
+--------------------------------[Order] [Product]---------------------------------
+--------------------------------M:N Relationship-----------------------------------
+--------------------------------Need Bridge able-----------------------------------
+
+[Order] Entity
+A [Order] Entity can associate with many [Product].
+(specific OrderId can associate with [Product] table many times)
+CardinalityRatio N
+
+[Product] Entity
+A [Product] associate with many [Order].
+(A specific ProductId associate with [Order] table many times.)
+CardinalityRatio N
+
+
+==SOLUTION== 
+--M:N Relationship--  
+--Need Bridge Table--  [OrderDetails]
+--Tables Needed 3  --  [Order]  [Product]  [OrderDetails]
+--[Order]   1     :       N [OrderDetails]
+--[Product] 1     :       N [OrderDetails]
+
+
+-------------------------------[Order] [OrderDetail--------------------------------------
+[Order] Entity
+A Order Entity can associate with many [OrderDetail].
+(specific OrderId can associate with OrderDetail table many times)
+CardinalityRatio N
+
+[OrderDetail] Entity
+A OrderDetail associate to a only one specific [Order].
+(A specific OrderDetailId associate with Order table only once.)
+CardinalityRatio 1
+---------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------[Product]   [OrderDetail]--------------------------------
+
+[Product] Entity
+A [Product] associate with many [OrderDetail].
+(A specific ProductId associate with OrderDetail table many times.)
+CardinalityRatio N
+
+[OrderDetail] Entity
+A [OrderDetail] associate to a only one specific [Product].
+(A specific OrderDetailId associate with Product table only once.)
+CardinalityRatio 1
+
+--------------------------------------------------------------------------------------
+
+=============================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
