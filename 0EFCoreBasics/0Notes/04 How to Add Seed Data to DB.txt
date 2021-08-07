@@ -1,0 +1,14 @@
+﻿
+
+
+=====Seed Data===================== 
+=== 3 Steps ===
+
+
+1 . Add seed data overdding OnModelCreating method , HasData() method..
+2 . Make a migration...        add-migration
+3 . Update that migration...   update-database
+
+VeryImportant - 
+ ** have to supply Key for Identity Column also...
+ ** overidding onModelCreating is not enough , have to make a migration and Update database needed...

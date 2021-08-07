@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VenkatCore.Models
 {
-    [Table("Employee")]
+    //[Table("Employee")]  //this done with Fluent API
     public class Employee
     {
         public int Id { get; set; }
@@ -24,10 +24,10 @@ namespace VenkatCore.Models
 
         public string PhotoPath { get; set; }
 
-        //public int DeptId { get; set; }
+        public int DeptId { get; set; }
 
 
-        //[ForeignKey("DeptId")]
-        //public Department Department { get; set; }  //Employee belongs to a specific Department .. cardinality '1'
+        //[ForeignKey("DeptId")]   //this done with Fluent API
+        public Department Department { get; set; }  //Employee belongs to a specific Department .. cardinality '1'
     }
 }

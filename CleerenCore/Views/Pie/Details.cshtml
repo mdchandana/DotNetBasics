@@ -1,0 +1,21 @@
+﻿@model Pie
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="row">
+    <div class="col-md-8 m-2">
+        <h3>@Model.Name</h3>
+        <img src="@Model.ImageUrl" alt="@Model.Name" width="550" height="450" /> <br /><br />
+        <h3><b>@Model.Price.ToString("c")</b></h3>
+        @Model.LongDescription
+        
+        
+        <br />
+        <br />
+        <a asp-controller="Pie" asp-action="Index">Back to All Pies</a>
+
+    </div>
+</div>

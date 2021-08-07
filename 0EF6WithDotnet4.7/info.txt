@@ -1,0 +1,151 @@
+﻿
+
+
+ <connectionStrings>
+    
+    <!--<add name="Model1" 
+         connectionString="data source=(LocalDb)\MSSQLLocalDB;
+                           initial catalog=EFCodeFirstBasics.Model1;
+                           integrated security=True;
+                           MultipleActiveResultSets=True;App=EntityFramework" 
+         providerName="System.Data.SqlClient" />-->
+
+    <!--<add name="EmployeeDbContext"
+         connectionString="data source=CHANDANA\MSSQLSERVER2012;
+                           initial Catalog=TestEF;
+                           integrated security=true"
+         providerName="System.Data.SqlClient" />-->
+
+
+    <add name="EmployeeDeptConnString"
+         connectionString="data source=CHANDANA\MSSQLSERVER2012;
+                           initial Catalog=TestEF;
+                           integrated security=true"
+         providerName="System.Data.SqlClient" />
+    
+  </connectionStrings>
+
+
+
+
+
+  [Table("Employee")]
+    public class Employee
+    {
+        [Key]
+        public string EmpNumber { get; set; }
+        public string EmpName { get; set; }
+        public int EmpAge { get; set; }
+        public string DeptNumber { get; set; }
+
+        [ForeignKey("DeptNumber")]
+        public Department Department { get; set; }
+    }
+
+
+
+    [Table("Department")]
+    public class Department
+    {
+        [Key]
+        public string DeptNumber { get; set; }
+        public string DeptName { get; set; }
+
+        
+        public List<Employee> Employees { get; set; }
+    }
+
+
+
+
+
+
+     public class EmployeeDbContext : DbContext
+    {
+        public EmployeeDbContext() : base("EmployeeDeptConnString")
+        {
+
+        }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //set initializer...
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EmployeeDbContext>());
+
+            //instantiation context....
+            EmployeeDbContext context = new EmployeeDbContext();
+
+            Console.WriteLine("Initializing..........");
+            
+            Console.WriteLine("Displaying Departments.....");
+
+            List<Department> listDepartments = null;
+            listDepartments = context.Departments.ToList();
+
+            foreach (var dept in listDepartments)
+            {
+                Console.WriteLine(dept.DeptNumber+"\t"+dept.DeptName);
+            }
+
+            
+            Employee employee = new Employee();
+   
+            Console.WriteLine("Creating a New Employee....");
+
+            Console.Write("Enter EmpNumber :");
+            employee.EmpNumber = Console.ReadLine();
+
+            Console.Write("Enter EmpName :");
+            employee.EmpName = Console.ReadLine();
+
+            Console.Write("Enter EmpAge :");
+            employee.EmpAge =int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Department Number : ");
+            employee.DeptNumber = Console.ReadLine();
+
+            context.Employees.Add(employee);
+            context.SaveChanges();
+
+
+            Console.WriteLine("Displaying Employees.....");
+            List<Employee> listEmployees = context.Employees.ToList();
+            foreach(var emp in listEmployees)
+            {
+                Console.WriteLine(emp.EmpNumber+"\t"+emp.EmpName+"\t"+emp.EmpAge+"\t"+emp.DeptNumber);
+            }
+           
+
+            Console.WriteLine("Press key to exit programe....");
+            Console.ReadLine();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

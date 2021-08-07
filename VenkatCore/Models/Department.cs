@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VenkatCore.Models
 {
-    [Table("Department")]
+    //[Table("Department")]
     public class Department
     {
         public int Id { get; set; }

@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div id="divName">
+
+</div>
+<br />
+
+<div id="divProduct">
+
+</div>
+<br />
+
+<div id="divProductList">
+
+</div>
+<br />
+
+
+<input id="Name" class="form-control col-md-3" />
+<br />
+
+
+<div class="form-group row">
+    <div class="col-md-2">
+        <button type="button" id="button1" class="form-control btn btn-primary">GetName</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="button2" class="form-control btn btn-primary">Get A Product</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="button3" class="form-control btn btn-primary">Get List Product</button>
+    </div>
+</div>
+
+<script>
+
+    //getting a name passing to client to server
+    $("#button1").click(function () {
+
+        //Sice this is a GET request data parameters are parse as urlString , appended to end of url
+        //http://localhost:57880/Home/GetName?name=chandana
+
+        var EnteredName = $("#Name").val();
+        $.ajax({
+            type: "GET",
+            data: { name: EnteredName },
+            url: "/Home/GetName",
+            success: function (result) {
+                /* alert(result);*/
+                $("#divName").html(result);
+            }
+        });
+    });
+
+
+
+
+    //getting single product type from GET Request
+    $("#button2").click(function () {
+
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetProduct",
+            success: function (result) {
+                var productResult = 'ProductId :' + result.id + '<br>';
+                productResult += 'ProductName :' + result.name + '<br>';
+                productResult += 'Price :' + result.price;
+
+                $("#divProduct").html(productResult)
+            }
+
+        })
+    })
+
+
+    //getting list of products....
+    $("#button3").click(function () {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Home/GetProductList",
+            success: function (products) {
+
+                var result='';
+
+                for (var i = 0; i < products.length; i++) {
+                    result += 'ProductId :' + products[i].id + ' | ';
+                    result += 'ProductName :' + products[i].name + ' | ';
+                    result += 'ProductPrice :' + products[i].price + '<br>';
+                }
+
+                $('#divProductList').html(result);
+            }
+        })
+
+    })
+
+
+
+</script>

@@ -1,0 +1,201 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Jquery With MVC - AJAX Basics</h3>
+<h5>GET with Jquery</h5>
+
+
+<div id="divName">
+
+</div>
+<br />
+
+
+
+
+<div id="divProduct">
+
+</div>
+<br />
+
+
+
+
+<div id="divProductList">
+
+</div>
+<br />
+
+
+<div class="form-group row">
+    <div class="col-md-2">
+        <button type="button" id="button1" class="form-control btn btn-primary">GetName</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="button2" class="form-control btn btn-primary">Get A Product</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="button3" class="form-control btn btn-primary">Get Products</button>
+    </div>
+</div>
+
+<br />
+<br />
+
+<h5>POST with Jquery</h5>
+
+<div class="row">
+
+    <div class="col-md-7">
+        <form id="myForm">
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label asp-for="Id" class="form-label">EmpId</label>
+                </div>
+                <div class="col-md-5">
+                    <input asp-for="Id" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label asp-for="Name" class="form-label">Emp Name</label>
+                </div>
+                <div class="col-md-5">
+                    <input asp-for="Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label asp-for="Address" class="form-label">Emp Address</label>
+                </div>
+                <div class="col-md-5">
+                    <input asp-for="Address" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input type="button" id="btnSaveEmployee" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <div class="col-md-5">
+
+        <div id="divSavedEmployee">
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+    //==================================================GET==================================================
+    //getting a name passing to client to server
+    $("#button1").click(function () {
+
+        //Sice this is a GET request data parameters are parse as urlString , appended to end of url
+        //http://localhost:57880/Home/GetName?name=chandana
+
+        //var EnteredName = $("#Name").val();
+        var EnteredName = 'Chandana';
+        $.ajax({
+            type: "GET",
+            data: { name: EnteredName },
+            url: "/JqueryMvcBasics/GetName",
+            success: function (result) {
+                /* alert(result);*/
+                $("#divName").html(result);
+            }
+        });
+    });
+
+
+
+
+    //getting single product type from GET Request
+    $("#button2").click(function () {
+
+        $.ajax({
+            type: "GET",
+            url: "/JqueryMvcBasics/GetProduct",
+            success: function (result) {
+                var productResult = 'ProductId :' + result.id + '<br>';    //camelcase sent from server default.. simple letter - firstletter
+                productResult += 'ProductName :' + result.name + '<br>';   //camelcase sent from server default.. simple letter - firstletter
+                productResult += 'Price :' + result.price;                 //camelcase sent from server default.. simple letter - firstletter
+
+                $("#divProduct").html(productResult)
+            }
+
+        })
+    })
+
+
+    //getting list of products....
+    $("#button3").click(function () {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/JqueryMvcBasics/GetProductList",
+            success: function (products) {
+
+                var result = '';
+
+                for (var i = 0; i < products.length; i++) {
+                    result += 'ProductId :' + products[i].id + ' | ';
+                    result += 'ProductName :' + products[i].name + ' | ';
+                    result += 'ProductPrice :' + products[i].price + '<br>';
+                }
+
+                $('#divProductList').html(result);
+            }
+        })
+
+    })
+
+
+
+   //==================================================POST==================================================
+
+    $("#btnSaveEmployee").click(function () {
+
+        var formData = $("#myForm").serialize();
+
+        $.ajax({
+
+            type: "POST",
+            url: "/JqueryMvcBasics/Create",
+            data: formData,
+            success: function (response) {             
+
+                var status = response.status;                    //camelcase sent from server default.. simple letter - firstletter
+                var savedEmployee = response.savedEmp;           //camelcase sent from server default.. simple letter - firstletter
+                var id = response.savedEmp.id;                   //camelcase sent from server default.. simple letter - firstletter
+                var name = response.savedEmp.name;               //camelcase sent from server default.. simple letter - firstletter
+                var address = response.savedEmp.address;         //camelcase sent from server default.. simple letter - firstletter
+
+                $('#divSavedEmployee').html('Updated Status :' + status + '<br>'
+                                        + 'Id :' + id + '<br>'
+                                        + 'Name :' + name + '<br>'
+                                        + 'Address :' + address);
+
+            }
+
+        })
+       
+    })
+
+</script>
+
+
+<br />

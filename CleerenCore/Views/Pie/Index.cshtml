@@ -1,0 +1,30 @@
+﻿@model PieListVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="row">
+   
+
+    @foreach (var pie in Model.Pies)
+    {
+
+    <div class="m">
+
+        <h3 class="mb-2">Category : @Model.CurrentCategory</h3>
+        <br />
+
+        <img src="@pie.ImageUrl" alt="" width="375" height="300"> <br />
+        <a asp-controller="Pie" asp-action="Details" asp-route-id="@pie.PieId">@pie.Name</a>  <br />
+        @pie.Price.ToString("c")  <br />
+        <p>@pie.ShortDescription</p>
+
+        <hr />
+    </div>
+
+    }
+
+
+</div>

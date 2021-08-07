@@ -1,0 +1,93 @@
+﻿@model EmpLeaveVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Jquery - Employee Leave Form Test - AJAX</h1>
+
+
+<form id="MyForm">
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label asp-for="EmpPositionId" class="form-label">Employee Position</label>
+        </div>
+        <div class="col-md-3">
+            <select asp-for="EmpPositionId" asp-items="@Model.SelectListEmpPositions" class="form-control"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label asp-for="EmployeeId" class="form-label" Employee Name></label>
+        </div>
+        <div class="col-md-3">
+            <select asp-for="EmployeeId" asp-items="@Model.SelectListEmployees" class="form-control"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label asp-for="LeaveType" class="form-label">Leave Type</label>
+        </div>
+        <div class="col-md-3">
+            <select asp-for="LeaveType" asp-items="@Html.GetEnumSelectList<LeaveType>()" class="form-control">
+                <option value="">Select LeaveType</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label asp-for="HalfFullLeaveType" class="form-label">HalfDay/Fullday</label>
+        </div>
+        <div class="col-md-3">
+            <select asp-for="HalfFullLeaveType" asp-items="@Html.GetEnumSelectList<HalfFullLeaveType>()" class="form-control">
+                <option value="">Select Full/Half Day</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <input type="button" id="btnAddToLeaveList" value="AddToLeaveList" class="btn btn-primary" />
+        </div>
+    </div>
+
+</form>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        //insert default item "Select" in dropdownlist on load
+        //var firstItemSelectEmp = "<option value=''>Select Employee</option>"
+        //$("#EmployeeId").html(firstItemSelectEmp);
+
+
+        //====
+        $("#EmpPositionId").change(function () {
+
+            var selectedPositionId = $("#EmpPositionId").val();
+
+            $.ajax({
+
+                type: "GET",
+                url: "/JqueryEmpLeave/GetEmployeesByPositioonId",
+                data: { positionId: selectedPositionId },
+                success: function (response) {
+                    console.log(response);
+                }
+            })
+        })
+
+
+
+
+        //=====
+        $("#btnAddToLeaveList").click(function () {
+
+            alert("AddToLeaveList Clicked...")
+        })
+
+
+    })
+</script>

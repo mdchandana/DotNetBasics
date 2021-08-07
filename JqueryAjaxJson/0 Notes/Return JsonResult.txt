@@ -1,0 +1,10 @@
+﻿
+
+==JsonResult
+You can easily return JavaScript Object Notation (JSON) content from your application 
+by using the JsonResult class (short method: Json()).
+
+public IActionResult JsonResult()
+{
+    return Json(new { message = "This is a JSON result.", date = DateTime.Now });
+}

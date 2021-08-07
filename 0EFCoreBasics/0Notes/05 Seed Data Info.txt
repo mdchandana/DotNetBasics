@@ -1,0 +1,105 @@
+﻿
+=======================================Seed Data in EF Core===================================================
+EF Core Seed data means pre-populating the database with default data. This is useful in scenarios where you
+want to provide some test data in the development environment. You could use this to set up the application 
+for the first time in a production environment by providing the sample or useful master data.
+
+Seed data is data that you populate the database with at the time it is created. You use seeding to provide 
+initial values for lookup lists, for demo purposes, proof of concepts etc.
+
+
+=How to Seed Data in EF Core
+In the EF Core, the database seeding has now become part of the Model Configuration. We discussed how to Configure 
+the model using the Fluent API. This is done by overriding the OnModelCreating method.
+
+==OnModelCreating
+The OnModelCreating method is called by the Context when it initializes the Model for the first time.
+The Context passes the reference to the ModelBuilder Instance in the OnModelCreating method.
+
+We override the OnModelCreating method, where we get the reference to the Modelbuilder instance.
+We can use the HasData method of the ModelBuilder to seed the initial data into the database via migrations.
+
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Author>().HasData(
+        new Author
+        {
+            AuthorId = 1,
+            FirstName = "William",
+            LastName = "Shakespeare"
+        }
+    );
+    modelBuilder.Entity<Book>().HasData(
+        new Book { BookId = 1, AuthorId = 1, Title = "Hamlet" },
+        new Book { BookId = 2, AuthorId = 1, Title = "King Lear" },
+        new Book { BookId = 3, AuthorId = 1, Title = "Othello" }
+    );
+}
+
+Note that the Identity value for each book is provided, and that the Foreign Key value has been set to that of the seed Author.
+
+
+
+=======
+To Seed data in the Department table, First we need to override the OnModelCreating method
+
+Next, we get the reference to the EntityTypeBuilder using the code;
+modelBuilder.Entity<Department>()
+
+Finally, use the HasData method to supply the list of Departments as shown above
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+  //Department
+  modelBuilder.Entity<Department>()
+              .HasData(
+               new Department { DepartmentID = 1, Name = "HR" },
+               new Department { DepartmentID = 2, Name = "Admin" },
+               new Department { DepartmentID = 3, Name = "Production" });
+ 
+}
+
+Once you have added the initial data, you should use migrations to update the database 
+
+The ID/Key values must be supplied in HasData method. The EF Core will not generate these
+when using the HasData method.  While inserting the data, the SQL Server will enable the 
+insertion of Identity values. Also do not change the value of the Primary key.
+
+
+Unlike its predecessor entity framework, the EF Core data seeding works with the migrations. 
+Hence we need to create the ef core migration to update the database.
+
+ 
+add-migration "v1"
+ 
+and then update the database using update-database or use the script-migration to generate the SQL Script 
+
+
+ 
+update-database
+or
+script-migration
+ 
+Updating the Seeded data
+You can update the seeded data or add new data later by simply modifying the HasData method. 
+For Example the following code changes the Department name from Production to Development
+
+
+ 
+//Department
+modelBuilder.Entity<Department>()
+         .HasData(
+         new Department { DepartmentID = 1, Name = "HR" },
+         new Department { DepartmentID = 2, Name = "Admin" },
+         new Department { DepartmentID = 3, Name = "Development" }
+         );
+ 
+Run the add-migration v2 and update-database to update the database with the new department name.
+
+Do not change the value of Primary key i.e DepartmentID. Because EF core uses it to check if 
+any changes made to the record.If the changed field is a Foreign key, then the migration script will 
+delete and recreate all the related records.
+
+Never use some key generator functions for any field. For Example Guid.NewGuid() for a Guid field. DateTime.Now 
+for a DateTime field. This will result in a new migration as the value changes every time you run the add-migration
+command.Hence always use hardcoded values.
