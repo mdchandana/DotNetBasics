@@ -59,13 +59,13 @@
 <script>
     $("#btnAddToCart").click(function () {
 
-        var selectedPro = $("#MyProducts").serialize();
+        var selectedProduct = $("#MyProducts").serialize();
 
         $.ajax({
 
             type: "POST",
             url: "/Cart/AddProductToCart",
-            data: 
+            data: selectedProduct,
             success: function (response) {
 
 
