@@ -11,12 +11,15 @@ namespace LibraryManagement.Data.Models
     {
         public int Id { get; set; }
 
-        [Required] 
-        public Asset Asset { get; set; }        
-        public DateTime CheckedOutSince { get; set; }
-        public DateTime CheckedOutUntil { get; set; }
+                  
+        public DateTime Since { get; set; }
+        public DateTime Until { get; set; }
 
         public int LibraryCardId { get; set; }
         public LibraryCard LibraryCard { get; set; }
+
+
+        public int LibraryAssetId { get; set; }
+        public LibraryAsset LibraryAsset { get; set; }
     }
 }

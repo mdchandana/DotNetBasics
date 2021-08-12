@@ -1,0 +1,15 @@
+﻿
+
+
+
+No ml-auto .. use ms-auto
+
+
+ <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Acccout" asp-action="Register">Register</a>
+      </li>
+</ul>
+
+
+                        

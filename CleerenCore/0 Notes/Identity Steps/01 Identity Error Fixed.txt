@@ -1,0 +1,16 @@
+﻿
+
+==ERROR when Add-migration ......
+The entity type 'IdentityUserLogin<string>' requires a primary key
+
+
+
+==Solution
+==overide OnModelCreating method and  [ base.OnModelCreating(modelBuilder); ]
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+
+            //To fix Identity keys error ---
+            base.OnModelCreating(modelBuilder);
+            //------------------------------
+}

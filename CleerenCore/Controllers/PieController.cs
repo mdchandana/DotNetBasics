@@ -21,6 +21,7 @@ namespace CleerenCore.Controllers
 
         }
 
+        [HttpGet]
         public IActionResult Index()
         {          
 

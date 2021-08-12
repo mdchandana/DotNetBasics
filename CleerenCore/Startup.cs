@@ -2,6 +2,7 @@ using CleerenCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,8 +34,28 @@ namespace CleerenCore
                 options.UseSqlServer(_config.GetConnectionString("CleerenCoreConnString")));
 
 
+            
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IPieRepository, PieRepository>();
+
+            //adding identity services
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
+
+
+            //----------------configure using IdentityOptions-----------------------------------
+            services.Configure<IdentityOptions>(options =>
+            {
+                //----------------Overide PasswordOptions default settings using IdentityOptions-----------
+                options.Password.RequiredLength = 4;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                //options.Password.RequiredUniqueChars = 
+            }
+            );
 
         }
 
@@ -48,7 +69,7 @@ namespace CleerenCore
 
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseAuthentication();
 
             ////--Dotnet 5
             ////ASP.NET Core Web App (Model-View-Controller)  (mvc)

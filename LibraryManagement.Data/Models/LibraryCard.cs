@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace LibraryManagement.Data.Models
 {
+    //========This is having 1 : 1 Relationship with Patron=======
     public class LibraryCard
     {
-        public int Id { get; set; }       //This is the foreignKey from Patron table Id
+        public int Id { get; set; }       //This is the foreignKey from Patron table Id   1:1
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal CurrentFees { get; set; }
+        public decimal Fees { get; set; }
+        public DateTime Created { get; set; }
 
-
-        public DateTime Issued { get; set; }
 
         public Patron Patron { get; set; }  //1:1
-
         public virtual IEnumerable<Checkout> Checkouts { get; set; }
+        public virtual IEnumerable<CheckoutHistory> CheckoutHistories { get; set; }
+        public virtual IEnumerable<Hold> Holds { get; set; }
     }
 }

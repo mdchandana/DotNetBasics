@@ -1,0 +1,48 @@
+﻿@*@using Microsoft.AspNetCore.Http
+    @inject IHttpContextAccessor httpContextAccessor*@
+
+@model Product
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Session With Asp.Net Core</h1>
+
+<h3>Get Single Product Ajax Called - (In Server - Session is Used)</h3>
+
+<div id="divProduct">
+
+</div>
+
+<br />
+<button id="btnOneProduct" class="btn btn-primary">Get One Product</button>
+
+<br />
+<br />
+
+
+
+
+
+
+
+<script>
+    $("#btnOneProduct").click(function () {
+
+        $.ajax({
+
+            type: "GET",
+            url: "/Home/GetProductFromSession",
+            success: function (response) {
+
+                var result = '';
+                result += 'Id :' + response.id + '<br>';
+                result += 'Name :' + response.name + '<br>';
+                result += 'Price :' + response.price + '<br>';
+
+                $("#divProduct").html(result)
+            }
+        })
+    })
+</script>

@@ -45,9 +45,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JqueryAjaxJson", "JqueryAja
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WesDoyle", "WesDoyle", "{09C2DD12-FAE5-4AF1-8AE7-5CF27E294402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement.Web", "LibraryManagement.Web\LibraryManagement.Web.csproj", "{24F438D4-8A65-49FF-8477-0642A67B66FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryManagement.Web", "LibraryManagement.Web\LibraryManagement.Web.csproj", "{24F438D4-8A65-49FF-8477-0642A67B66FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement.Data", "LibraryManagement.Data\LibraryManagement.Data.csproj", "{563530E9-4E59-426B-A6B5-7248095E94BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryManagement.Data", "LibraryManagement.Data\LibraryManagement.Data.csproj", "{563530E9-4E59-426B-A6B5-7248095E94BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetCore Session", "DotnetCore Session", "{56A8C2BD-9AB0-42B5-80CE-61073CE4936C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCoreSession", "DotnetCoreSession\DotnetCoreSession.csproj", "{596BA574-EDF8-4239-A9F9-9DB928E2E725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +99,10 @@ Global
 		{563530E9-4E59-426B-A6B5-7248095E94BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{563530E9-4E59-426B-A6B5-7248095E94BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{563530E9-4E59-426B-A6B5-7248095E94BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{596BA574-EDF8-4239-A9F9-9DB928E2E725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{596BA574-EDF8-4239-A9F9-9DB928E2E725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{596BA574-EDF8-4239-A9F9-9DB928E2E725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{596BA574-EDF8-4239-A9F9-9DB928E2E725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +114,7 @@ Global
 		{146ADA23-73DE-4C04-B263-FAD780C2D36A} = {56EE40C3-5140-4D57-B9D2-F12DDFA8300B}
 		{24F438D4-8A65-49FF-8477-0642A67B66FE} = {09C2DD12-FAE5-4AF1-8AE7-5CF27E294402}
 		{563530E9-4E59-426B-A6B5-7248095E94BC} = {09C2DD12-FAE5-4AF1-8AE7-5CF27E294402}
+		{596BA574-EDF8-4239-A9F9-9DB928E2E725} = {56A8C2BD-9AB0-42B5-80CE-61073CE4936C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCBD3B7F-683C-418C-BA2B-B303848FFC8A}

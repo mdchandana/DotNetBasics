@@ -39,8 +39,8 @@ STEP 3 ==== install Microsoft.AspNetCore.Identity.EntityFrameworkCore ========
 - install Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
 
-
-
+==Identity Razor UI
+Microsoft.AspNetCore.Identity.UI
 
 
 

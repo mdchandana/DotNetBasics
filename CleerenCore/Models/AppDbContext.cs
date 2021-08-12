@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CleerenCore.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext //: DbContext
     {
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -21,6 +22,11 @@ namespace CleerenCore.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            //To fix Identity keys error ---
+            base.OnModelCreating(modelBuilder);
+            //------------------------------
+
 
             modelBuilder.Entity<Category>().ToTable("Category");
             modelBuilder.Entity<Pie>().ToTable("Pie");

@@ -1,0 +1,76 @@
+﻿@model ProductVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Products Cart</h2>
+
+<h3>Send Products to Server - Ajax Called - (In Server Session is Used)</h3>
+
+
+
+<div>
+
+    <form id="MyProduct">
+
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label asp-for="Id" class="form-label"></label>
+            </div>
+            <div class="col-md-7">
+                <select asp-for="Id" asp-items="@Model.ProductNames" class="form-control">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label asp-for="Price" class="form-label"></label>
+            </div>
+            <div class="col-md-7">
+                <input asp-for="Price" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label asp-for="Qty" class="form-label"></label>
+            </div>
+            <div class="col-md-7">
+                <input asp-for="Qty" class="form-control" />
+            </div>
+            <button id="btnAddToCart">AddToCart</button>
+        </div>       
+    </form>
+</div>
+
+
+
+<br />
+<div>
+    <h3>Cart Details</h3>
+    <div id="cart">
+
+    </div>
+</div>
+
+
+
+<script>
+    $("#btnAddToCart").click(function () {
+
+        var selectedPro = $("#MyProducts").serialize();
+
+        $.ajax({
+
+            type: "POST",
+            url: "/Cart/AddProductToCart",
+            data: 
+            success: function (response) {
+
+
+            }
+        })
+
+    })
+</script>

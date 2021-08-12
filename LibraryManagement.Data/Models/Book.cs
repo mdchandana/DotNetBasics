@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagement.Data.Models
 {
-    public class Book
+    public class Book //: LibraryAsset
     {
         public string ISBN { get; set; }
         public string Author { get; set; }

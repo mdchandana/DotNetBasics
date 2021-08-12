@@ -1,8 +1,0 @@
-﻿
-(================= (4 steps) ============================================
-
-1. DbContext class should be inherit from IdentityDbContext ..
-2. Add Identity service to application, in configureService method ..
-3. Add Authentication middleware, to application request processing pipeline,
-   authentication should be add before the mvc middleware..
-4. Generate Asp.net core Identity Tables

@@ -1,0 +1,61 @@
+﻿
+(================= (4 steps) ============================================
+
+
+0. First Install Nuget Identity
+        ======To work with Identity , we have to install
+        Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+        ==if we need identity Razor - UI builtin
+        Microsoft.AspNetCore.Identity.UI
+
+
+
+
+
+
+1. DbContext class should be inherit from IdentityDbContext ..
+
+2. Add Identity service to application, in configureService method ..
+
+ services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
+
+
+
+3. Add Authentication middleware, to application request processing pipeline,
+   authentication should be add before the mvc middleware..
+
+   app.UseAuthentication();
+
+
+
+4. Generate Asp.net core Identity Tables .. Make a Migration...
+
+add-Migration InitalMigration
+
+
+
+
+=========
+5. When we making Migration ... There is a ERROR Occured...
+TO Fixed...
+=========
+==ERROR when Add-migration ......
+The entity type 'IdentityUserLogin<string>' requires a primary key
+
+==Solution
+==overide OnModelCreating method and  [ base.OnModelCreating(modelBuilder); ]
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+
+            //To fix Identity keys error ---
+            base.OnModelCreating(modelBuilder);
+            //------------------------------
+}
+=========
+
+
+
+
+

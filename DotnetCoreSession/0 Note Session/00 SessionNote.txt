@@ -1,0 +1,43 @@
+﻿
+
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
+
+
+
+
+        Steps=====
+        1. services.AddSession();
+        2. app.UseSession();
+
+        3. //using Microsoft.AspNetCore.Http;
+           HttpContext.Session.SetString("name", "chandana");
+           HttpContext.Session.SetInt32("age", 40);
+           
+           
+           ViewBag.Name = HttpContext.Session.GetString(name);  
+           ViewBag.Age = HttpContext.Session.GetInt32(age);  
+
+
+
+
+
+        public IActionResult Index()
+        {
+            //using Microsoft.AspNetCore.Http;
+            //set session simple text
+            HttpContext.Session.SetString("name", "chandana");
+            HttpContext.Session.SetInt32("age", 40);
+
+            //get session simple text
+            ViewBag.Name = HttpContext.Session.GetString(name);  
+            ViewBag.Age = HttpContext.Session.GetInt32(age);  
+
+            return View();
+        }
+
+
+
+        
+
+
